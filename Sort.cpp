@@ -1,6 +1,6 @@
-#include "Sort.hpp"
+#include "sort.hpp"
 
-void Sorting::Selection::sort(ItemType * arr, const u32 arrLen)
+void Sorting::selection(ItemType * arr, const u32 arrLen)
 {
 	//move over the array, every item at index < i is sorted
 	for (size_t i = 0; i < arrLen-1; i++)
@@ -14,10 +14,31 @@ void Sorting::Selection::sort(ItemType * arr, const u32 arrLen)
 	}
 }
 
-bool Sorting::comparer(const ItemType lhs, const ItemType rhs)
+void Sorting::insertion(ItemType * arr, const u32 arrLen)
 {
-	return lhs < rhs;
+	for (size_t i = 1; i < arrLen; i++)
+	{
+		u32 j = i;
+		while ( j > 0 && comparer(arr[j], arr[j - 1]))
+		{ swap(arr[j - 1], arr[j]); j--; }
+	}
 }
+
+void Sorting::bubble(ItemType * arr, const u32 arrLen)
+{
+	for (size_t i = 0; i < arrLen-1; i++)
+	{
+		for (size_t j = 1; j < arrLen-i; j++)
+		{
+			if (comparer(arr[j], arr[j - 1]))
+			{ swap(arr[j - 1], arr[j]); }
+		}
+
+	}
+}
+
+bool Sorting::comparer(const ItemType lhs, const ItemType rhs)
+{ return lhs < rhs; }
 
 void Sorting::swap(ItemType & a, ItemType & b)
 {

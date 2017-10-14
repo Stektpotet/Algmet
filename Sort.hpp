@@ -11,13 +11,9 @@ namespace Sorting
 
 	void swap(ItemType & a, ItemType & b);
 
-	class Selection
-	{
-	public:
-		static void sort(ItemType* arr, const u32 arrLen);
-	//private:
-	//	void step()
-	};
+	void selection(ItemType* arr, const u32 arrLen);
+	void insertion(ItemType* arr, const u32 arrLen);
+	void bubble(ItemType* arr, const u32 arrLen);
 }
 
 #endif //!SORT_H
